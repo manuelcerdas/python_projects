@@ -1,0 +1,40 @@
+{
+    "movies": [
+        {
+            "title":"California Man",
+            "kicks":3,
+            "kisses":104,
+            "type": "Romance"
+        },
+        {
+            "title":"He's Not Really Into Dudes",
+            "kicks":2,
+            "kisses":100,
+            "type": "Romance"
+        },
+        {
+            "title":"Beautiful Woman",
+            "kicks":1,
+            "kisses":81,
+            "type": "Romance"
+        },
+        {
+            "title":"Kevin Longblade",
+            "kicks":101,
+            "kisses":10,
+            "type": "Action"
+        },
+        {
+            "title":"RoboSlayer 3000",
+            "kicks":99,
+            "kisses":5,
+            "type": "Action"
+        },
+        {
+            "title":"Amped II",
+            "kicks":98,
+            "kisses":2,
+            "type": "Action"
+        }   
+    ]
+}
