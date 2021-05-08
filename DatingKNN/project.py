@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import classifier as cl
 import normalizer as norm
+import matplotlib
+import matplotlib.pyplot as plt
 
 #Read the training data json
 filename = 'data/datingTestSet.txt'
@@ -22,6 +24,8 @@ gapCount = firstLine.count("\t")
 numRows = len(data)
 datingData = np.zeros((numRows,gapCount))
 labels =  []
+#labelsClass stores the labels as int
+labelsClass = []
 index = 0
 
 for line in data:
@@ -31,18 +35,35 @@ for line in data:
     #split the line into numeric data and label
     lineData = splitLine[0:gapCount]
     #the last column is the label
-    label = splitLine[-1]
-
+    label = splitLine[-1]    
+    
     #copy the line to the corresponding line in the array
     datingData[index:] = lineData[0:]
 
     #Append the label to the labels array               
-    labels.append(label)
+    labels.append(label)    
+    if label=='largeDoses':
+        labelsClass.append(3)
+    elif label=='smallDoses':
+        labelsClass.append(2)    
+    else: 
+        labelsClass.append(1)    
 
     index= index+1
 
 #datingData = norm.normalizer(datingData)
 
 # Plot the data
-print (datingData[:1])
+fig = plt.figure(1)
+ax = fig.add_subplot(111)
+ax.scatter(datingData[:,1], datingData[:,2],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
+fig.xlabel("Percentage of time playing videogames", fontsize=14)
+fig.ylabel("Liters of ice cream consumed", fontsize=14)
 
+fig2 = plt.figure(2)
+ay = fig2.add_subplot(111)
+ay.scatter(datingData[:,1], datingData[:,0],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
+plt.xlabel("Percentage of time playing videogames", fontsize=14)
+plt.ylabel("Frequent flyer miles earned per year", fontsize=14)
+
+plt.show()
