@@ -24,12 +24,12 @@ def classify0 (newPoint, dataSet, labels, k):
 
     #Create a dictionary to store the results
     labelCount = {}
-
-    for i in range(k):
-        voteLabel = labels[sortedDistancesIndexes[i]]
+      
+    for i in range(k):        
+        voteLabel = labels[sortedDistancesIndexes[i]]        
         labelCount[voteLabel] = labelCount.get(voteLabel,0)+1
-
-    sortedLabelCount = sorted(labelCount,key=lambda item:item[1]);
+        
+    sortedLabelCount = sorted(labelCount,key=lambda item:item[1])
     return (sortedLabelCount[0])
         
 

@@ -27,6 +27,8 @@ labels =  []
 #labelsClass stores the labels as int
 labelsClass = []
 index = 0
+minVals = []
+ranges = []
 
 for line in data:
     line = line.strip()
@@ -51,19 +53,40 @@ for line in data:
 
     index= index+1
 
-#datingData = norm.normalizer(datingData)
+datingData, minVals, ranges = norm.normalizer(datingData)
 
 # Plot the data
-fig = plt.figure(1)
-ax = fig.add_subplot(111)
-ax.scatter(datingData[:,1], datingData[:,2],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
-fig.xlabel("Percentage of time playing videogames", fontsize=14)
-fig.ylabel("Liters of ice cream consumed", fontsize=14)
+#fig = plt.figure(1)
+#ax = fig.add_subplot(111)
+#ax.scatter(datingData[:,1], datingData[:,2],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
+#fig.xlabel("Percentage of time playing videogames", fontsize=14)
+#fig.ylabel("Liters of ice cream consumed", fontsize=14)
 
-fig2 = plt.figure(2)
-ay = fig2.add_subplot(111)
-ay.scatter(datingData[:,1], datingData[:,0],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
-plt.xlabel("Percentage of time playing videogames", fontsize=14)
-plt.ylabel("Frequent flyer miles earned per year", fontsize=14)
+#fig2 = plt.figure(2)
+#ay = fig2.add_subplot(111)
+#ay.scatter(datingData[:,1], datingData[:,0],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
+#plt.xlabel("Percentage of time playing videogames", fontsize=14)
+#plt.ylabel("Frequent flyer miles earned per year", fontsize=14)
 
-plt.show()
+#plt.show()
+
+dataLabels = ['not at all','in small doses','a lot']
+#Get the data to evaluate from the user
+#frequentMiles=input("Frequent flyer miles owned per year: ")
+#playGames=input("Percentage of time spent playing video games: ") 
+#iceCream=input("Liters of ice cream eaten per year: ")
+frequentMiles=40920
+playGames=8.326976
+iceCream=0.953952
+
+#normalize the user data
+frequentMiles = (float(frequentMiles) - minVals[0]) / ranges[0]
+playGames = (float(playGames) - minVals[1]) / ranges[1]
+iceCream = (float(iceCream) - minVals[2]) / ranges[2]
+
+#save user data as an array
+userData = np.array([frequentMiles,playGames,iceCream])
+
+result = cl.classify0(userData,datingData,labelsClass,3)
+
+print (f"You will probably like this person {result}")

@@ -19,5 +19,5 @@ def normalizer (dataSet):
     normalizedData = dataSet - np.tile(minVals,(numRows,1))
     normalizedData = normalizedData / np.tile(ranges,(numRows,1))
 
-    return normalizedData;
+    return normalizedData, minVals, ranges;
 
