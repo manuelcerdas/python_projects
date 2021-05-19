@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 
 # Using Conways "Game of Life rules" determine the value of all the cells in matrix m
 # and return them in a new matrix
-def matrixLife(m):
+def matrixLife(m,img):
     # get the matrix size
     rows = m.shape[0]
     columns = m.shape[1]
@@ -36,18 +36,20 @@ def matrixLife(m):
             else: 
                 if (neighborsOn == 3):
                     result[row,column] = 1
-    return result
 
+    img.set_data(result)
+    m[:] = result[:]
+    return img
 
 # initialize the matrix
 # 1 is on, 0 is off
-x = np.array([[0,0,1],[1,1,0],[0,1,0]])
-y = matrixLife(x)
-# ammount of steps we are going to run
+m = np.array([[0,0,1],[1,1,0],[0,1,0]])
 
-#plt.imshow(x, interpolation="nearest")
-#plt.show()
-print("")
-print(x)
-print("")
-print(y)
+# ammount of steps we are going to run
+steps = 5
+
+#set up the animation
+fig, ax = plt.subplots()
+img = ax.imshow(m, interpolation="nearest")
+ani = animation.FuncAnimation(img,matrixLife,fargs=(m,img),frames=10,interval=50)
+
