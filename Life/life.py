@@ -4,7 +4,7 @@ import matplotlib.animation as animation
 
 # Using Conways "Game of Life rules" determine the value of all the cells in matrix m
 # and return them in a new matrix
-def matrixLife(m,img):
+def update(frameNum,m,img):
     # get the matrix size
     rows = m.shape[0]
     columns = m.shape[1]
@@ -24,7 +24,7 @@ def matrixLife(m,img):
             # adding the neighbors will tell us how many neighbors are on 
             neighborsOn = int(m[previousRow,previousColumn] + m[row,previousColumn] + m[nextRow,previousColumn])
             neighborsOn += int(m[previousRow,column] + m[nextRow,column])
-            neighborsOn += int(m[previousRow,nextColumn] + m[row,nextColumn] + m[nextRow,nextColumn])                        
+            neighborsOn += int(m[previousRow,nextColumn] + m[row,nextColumn] + m[nextRow,nextColumn])                
 
             # apply game of life rules to see the value of the cell in the next step
             # since the result matrix is full with ceros, we only have to consider the 
@@ -35,21 +35,29 @@ def matrixLife(m,img):
                     result[row,column] = 1               
             else: 
                 if (neighborsOn == 3):
-                    result[row,column] = 1
-
+                    result[row,column] = 1   
+            
     img.set_data(result)
-    m[:] = result[:]
-    return img
+    m[:] = result[:]    
+    return
 
-# initialize the matrix
+#Array size
+print ("We are using a square array")
+size=input("Please type the size of the array (reccommended 100): ")
+size = int(size)
+
+
+size = 100
+
+# initialize the matrix with
 # 1 is on, 0 is off
-m = np.array([[0,0,1],[1,1,0],[0,1,0]])
-
-# ammount of steps we are going to run
-steps = 5
+m = np.random.choice([0,1],size*size,p=[0.2,0.8]).reshape(size,size)
 
 #set up the animation
 fig, ax = plt.subplots()
 img = ax.imshow(m, interpolation="nearest")
-ani = animation.FuncAnimation(img,matrixLife,fargs=(m,img),frames=10,interval=50)
+ani = animation.FuncAnimation(fig,update,fargs=(m,img),frames=100,interval=50)
+plt.show()
+
+
 

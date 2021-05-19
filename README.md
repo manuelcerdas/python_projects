@@ -3,4 +3,4 @@ Small Ptyhon projects I'm doing to learn
 
 **PlotMovies** This is an example of a KNN Reader.  It classifies the movies in the "newMovies.json" file as Action or Romance, using the movies in "movies.json" as reference.. It also creates a scatter plot with the movies (based on the example from chapter 2 of "Machine Learning in Action" by Peter Harrington).
 
-**Life** An implementation of the Conway's "Game of Life".  All calculations are done correctly, but I have to research the animated display (based on Chapter 3 of "Python Playground" by Mahesh Venkitachalam
+**Life** An implementation of the Conway's "Game of Life"  (based on Chapter 3 of "Python Playground" by Mahesh Venkitachalam).
