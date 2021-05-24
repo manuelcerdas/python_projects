@@ -72,12 +72,12 @@ datingData, minVals, ranges = norm.normalizer(datingData)
 
 dataLabels = ['not at all','in small doses','a lot']
 #Get the data to evaluate from the user
-#frequentMiles=input("Frequent flyer miles owned per year: ")
-#playGames=input("Percentage of time spent playing video games: ") 
-#iceCream=input("Liters of ice cream eaten per year: ")
-frequentMiles=40920
-playGames=8.326976
-iceCream=0.953952
+frequentMiles=input("Frequent flyer miles owned per year: ")
+playGames=input("Percentage of time spent playing video games: ") 
+iceCream=input("Liters of ice cream eaten per year: ")
+#frequentMiles=40920
+#playGames=8.326976
+#iceCream=0.953952
 
 #normalize the user data
 frequentMiles = (float(frequentMiles) - minVals[0]) / ranges[0]
@@ -89,4 +89,4 @@ userData = np.array([frequentMiles,playGames,iceCream])
 
 result = cl.classify0(userData,datingData,labelsClass,3)
 
-print (f"You will probably like this person {result}")
+print (f"You will probably like this person {dataLabels[result-1]}")
