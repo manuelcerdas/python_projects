@@ -1,19 +1,23 @@
 import turtle
 
-colors = ["red","green","blue","yellow","orange","black"]
+colors = ["red","orange","yellow","green","blue","purple"]
 
+tortuga = turtle.Turtle()
 len = 100
-colorIndex = 0
+index = 0
 
-turtle.speed(0)
+tortuga.speed(0)
 def square (len):
     for i in range (4):
-        turtle.forward(len)
-        turtle.right (90)
+        tortuga.forward(len)
+        tortuga.right (90)
 
-for i in range (72):    
-    turtle.color(colors[i % 6])
+for i in range (72):            
+    tortuga.color(colors[index])    
     square(len)
-    turtle.right (5)
+    tortuga.right (5)
+    if ((i%12)==11): 
+        index+=1       
 
-input()
+tortuga.screen.exitonclick()
+tortuga.screen.mainloop()
