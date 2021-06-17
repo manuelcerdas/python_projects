@@ -1,0 +1,19 @@
+{
+      "entries": [
+            {
+                  "Articulo": "Perros",
+                  "Cantidad": "5",
+                  "Precio Unitario": "7"
+            },
+            {
+                  "Articulo": "Gatos",
+                  "Cantidad": "8",
+                  "Precio Unitario": "4"
+            },
+            {
+                  "Articulo": "Tortugas",
+                  "Cantidad": "9",
+                  "Precio Unitario": "8"
+            }
+      ]
+}

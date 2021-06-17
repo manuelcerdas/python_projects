@@ -12,3 +12,7 @@ In the **Tortuga** folder I have a few small graphics projects using the turtle
 **Tortuga/square_spiral**: my first attempt to use the turtle, just draw a square spiral
 **Tortuga/circle_square**: draws a circle like shape using squares
 **Tortuga/polygon**: draws a polygon with the ammount of sides specified by the user
+
+**PDFTable**: an example of converting a PDF table to CSV
+
+**PDFText**: an example of converting a PDF text to JSON
