@@ -56,19 +56,17 @@ for line in data:
 datingData, minVals, ranges = norm.normalizer(datingData)
 
 # Plot the data
-#fig = plt.figure(1)
-#ax = fig.add_subplot(111)
-#ax.scatter(datingData[:,1], datingData[:,2],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
-#fig.xlabel("Percentage of time playing videogames", fontsize=14)
-#fig.ylabel("Liters of ice cream consumed", fontsize=14)
+fig, axes = plt.subplots (nrows=1, ncols=2)
 
-#fig2 = plt.figure(2)
-#ay = fig2.add_subplot(111)
-#ay.scatter(datingData[:,1], datingData[:,0],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
-#plt.xlabel("Percentage of time playing videogames", fontsize=14)
-#plt.ylabel("Frequent flyer miles earned per year", fontsize=14)
+axes[0].scatter(datingData[:,1], datingData[:,2],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
+axes[0].set_xlabel("Percentage of time playing videogames", fontsize=14)
+axes[0].set_ylabel("Liters of ice cream consumed", fontsize=14)
 
-#plt.show()
+axes[1].scatter(datingData[:,1], datingData[:,0],15.0*np.array(labelsClass),15.0*np.array(labelsClass))
+axes[1].set_xlabel("Percentage of time playing videogames", fontsize=14)
+axes[1].set_ylabel("Frequent flyer miles earned per year", fontsize=14)
+
+fig.show()
 
 dataLabels = ['not at all','in small doses','a lot']
 #Get the data to evaluate from the user
