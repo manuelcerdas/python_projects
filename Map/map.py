@@ -24,7 +24,9 @@ fig = px.choropleth(
     color_continuous_scale="Viridis",
     range_color=(datos["nacimientos"].min(), datos["nacimientos"].max()),
     scope="north america",
-    labels={'nacimientos':'Cantidad de nacimientos'}
+    labels={'nacimientos':'Cantidad de nacimientos'},
+    hover_name="canton",
+    hover_data=["hombres","mujeres"]
 )
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 fig.show()
