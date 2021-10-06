@@ -47,8 +47,6 @@ size=input("Please type the size of the array (reccommended 100): ")
 size = int(size)
 
 
-size = 100
-
 # initialize the matrix with
 # 1 is on, 0 is off
 m = np.random.choice([0,1],size*size,p=[0.2,0.8]).reshape(size,size)
